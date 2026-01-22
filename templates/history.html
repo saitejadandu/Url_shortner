@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            word-break: break-all;
+        }
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h2>URL History</h2>
+
+<table>
+    <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+    </tr>
+
+    {% for url in urls %}
+    <tr>
+        <td>{{ url.original_url }}</td>
+        <td>
+            <a href="{{ url.short_url }}" target="_blank">
+                {{ url.short_url }}
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
